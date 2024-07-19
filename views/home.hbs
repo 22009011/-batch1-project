@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {{> header }}
+  
+  <style>
+    #video{
+      height: 500px;
+      width: 100%;
+    }
+
+  </style>
+
+  <body>
+    {{> navbar }}
+    <main>
+      <section class="hero">
+        <img src="images/logo.png" alt="logo" height="200px" width="700px">
+       
+        <p>Your adventure starts here. Discover amazing places at exclusive deals!</p>
+        <br>
+        <br>
+        <a href="search" class="btn">Find Your Trip</a>
+      </section>
+      <video autoplay muted loop id="video">
+           <source src="images/back.mp4" type="video/mp4">
+      </video>   
+
+      <section class="featured-trips">
+        <h2>Featured Trips</h2>
+        <div class="trip-grid">
+          <!-- Trip Card 1 -->
+          <div class="trip-card">
+            <img src="images/goa.jpg" alt="Trip to Goa">
+            <div class="card-content">
+              <h3>Trip to Goa</h3>
+              
+            </div>
+          </div>
+          <!-- Trip Card 2 -->
+          <div class="trip-card">
+            <img src="images/wayanad.png" alt="Trip to Wayanad">
+            <div class="card-content">
+              <h3>Wayanad</h3>
+              
+            </div>
+          </div>
+          <!-- Trip Card 3 -->
+          <div class="trip-card">
+            <img src="images/ladakh.jpg" alt="Trip to Ladakh">
+            <div class="card-content">
+              <h3>Ladakh</h3>
+              
+            </div>
+          </div>
+          <!-- Add more trip cards as needed -->
+          <div class="trip-card">
+            <img src="images/kolkata.jpg" alt="Trip to Kolkata">
+            <div class="card-content">
+              <h3>Kolkata</h3>
+             
+            </div>
+          </div>
+          <div class="trip-card">
+            <img src="images/my.jpg" alt="Trip to Mysuru">
+            <div class="card-content">
+              <h3>Mysuru</h3>
+            
+            </div>
+          </div>
+          <div class="trip-card">
+            <img src="images/agra.jpg" alt="Trip to Agra">
+            <div class="card-content">
+              <h3>Agra</h3>
+              
+            </div>
+          </div>
+          <div class="trip-card">
+            <img src="images/mumbai.jpg" alt="Trip to Mumbai">
+            <div class="card-content">
+              <h3>Mumbai</h3>
+              
+            </div>
+          </div>
+          <div class="trip-card">
+            <img src="images/varkala.jpg" alt="Trip to Varkala">
+            <div class="card-content">
+              <h3>Varkala</h3>
+              
+            </div>
+          </div>
+          <div class="trip-card">
+            <img src="images/ooty.jpg" alt="Trip to Ooty">
+            <div class="card-content">
+              <h3>Ooty</h3>
+              
+            </div>
+          </div>
+          <div class="trip-card">
+            <img src="images/alappuzha.jpg" alt="Trip to Alappuzha">
+            <div class="card-content">
+              <h3>Alappuzha</h3>
+             
+            </div>
+          </div>
+          <div class="trip-card">
+            <img src="images/Charminar.jpg" alt="Trip to Hyderabad">
+            <div class="card-content">
+              <h3>Hyderabad</h3>
+            </div>
+          </div>
+        </div>
+         <a href="https://wa.me/+917904946778" class="whatsapp-icon" target="_blank"><img src="images/new.png" class="whatsapp-icon" style="width:42px;height:42px;"></a>
+         <i class="fab fa-whatsapp"></i>
+    </a>
+      </section>
+    </main>
+     
+
+    <footer>
+      <p>&copy; 2024 Travel Trip Service Provider. All rights reserved.</p>
+    </footer>
+
+    <script src="/profile.js"></script>
+  </body>
+</html>

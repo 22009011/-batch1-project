@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{> header }}
+  <body>
+  
+    {{> navbar }}
+
+    <div class="container-fluid">
+      <main>
+        <section class="profile">
+            <div class="profile-header">
+                <img src="images/profile.jpg" alt="User Profile Picture" class="profile-pic">
+                <h1 id="user-name">Muniyandi</h1>
+            </div>
+            <div class="profile-details">
+                <h2>User Profile</h2>
+                <h3>Name : {{user.NAME}}</h3>
+                <h3>Email : {{user.EMAIL}}</h3>
+                <button onclick="editProfile()">Edit Profile</button>
+            </div>
+            <div class="edit-profile" id="edit-profile">
+                <h2>Edit Profile</h2>
+                <form id="edit-profile-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone">
+                    <button type="button" onclick="saveProfile()">Save</button>
+                </form>
+            </div>
+            <h2>Booking History</h2>
+            <ul id="booking-history">
+                <!-- List of previous bookings will be dynamically inserted here -->
+            </ul>
+        </section>
+    </main>
+
+    
+
+    <script>
+        // Sample booking history data
+const bookingHistory = [
+    {
+        destination: 'Goa',
+        date: '2024-06-15',
+        price: 3000
+    },
+    {
+        destination: 'Wayanad',
+        date: '2024-05-20',
+        price: 2500
+    },
+    {
+        destination: 'Varkala',
+        date: '2024-04-10',
+        price: 2000
+    }
+];
+
+// Function to load user profile details
+function loadProfile() {
+    // Simulated user profile data
+    const userName = 'Muniyandi';
+    const userEmail = 'muniyandi4756@gmail.com';
+    const userPhone = '8028712996';
+
+    document.getElementById('user-name').textContent = userName;
+    document.getElementById('user-email').textContent = userEmail;
+    document.getElementById('user-phone').textContent = userPhone;
+
+    // Load booking history
+    const bookingHistoryList = document.getElementById('booking-history');
+    bookingHistory.forEach(booking => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <strong>Destination:</strong> ${booking.destination}<br>
+            <strong>Date:</strong> ${booking.date}<br>
+            <strong>Price:</strong> ₹${booking.price}
+        `;
+        bookingHistoryList.appendChild(listItem);
+    });
+}
+
+// Function to show the edit profile form
+function editProfile() {
+    document.getElementById('edit-profile').style.display = 'block';
+}
+
+// Function to save the edited profile details
+function saveProfile() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+
+    document.getElementById('user-name').textContent = name;
+    document.getElementById('user-email').textContent = email;
+    document.getElementById('user-phone').textContent = phone;
+
+    // Hide the edit profile form
+    document.getElementById('edit-profile').style.display = 'none';
+}
+
+// Load profile data on page load
+window.onload = loadProfile;
+    </script>
+    
+      <footer><p>&copy; 2024 Travel Trip Service Provider. All rights reserved.</p></footer>
+    </div>
+   
+        
+   
+  </body>
+  
+</html>

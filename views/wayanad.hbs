@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Wayanad: An Enchanting Escape</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            background: #f4f4f4;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: #333;
+            margin: 0 0.5rem;
+            text-decoration: none;
+        }
+
+        .main {
+            padding: 2rem;
+        }
+
+        .package-details {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f8ccfa;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .package-details h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .package-details h2 {
+            color: #e74c3c;
+            margin-top: 1.5rem;
+        }
+
+        .package-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .package-details ul ul {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            padding-left: 20px;
+        }
+
+        .package-details ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .contact-form {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        .contact-form h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: larger;
+        }
+
+        .contact-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: larger;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #555;
+        }
+
+        .contact-form .success-message {
+            display: none;
+            color: green;
+            text-align: center;
+            margin-top: 20px;
+        }
+       .trip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.trip-card {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.trip-card img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.trip-card:hover {
+  transform: scale(1.05);
+}
+
+.trip-card:hover img {
+  transform: scale(1.1);
+}
+
+.trip-card .card-content {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.trip-card .card-content h3 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.trip-card .card-content p {
+  margin: 10px 0 0;
+  font-size: 1em;
+}
+
+.trip-card .card-content .btn {
+  background-color: #ff6347;
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Discover Wayanad: An Enchanting Escape</h1>
+    </header>
+
+    <nav>
+        <a href="home">Home</a>
+        <a href="#">Packages</a>
+        <a href="https://wa.me/+917904946778">Contact</a>
+    </nav>
+
+    <main class="main">
+        <section class="package-details">
+            <h1>Discover Wayanad: An Enchanting Escape</h1>
+            <h2>Price:</h2>
+            <p><em>₹15,000 per person</em></p>
+            <h2>Duration:</h2>
+            <p><em>5 Days / 4 Nights</em></p>
+
+            <h2>Inclusions:</h2>
+            <ul>
+                <li>Round-trip airfare from your city to Wayanad</li>
+                <li>Accommodation in a 4-star hotel with breakfast and dinner</li>
+                <li>All local transportation in a comfortable air-conditioned vehicle</li>
+                <li>Guided tours to major attractions</li>
+                <li>Entry fees to all included attractions</li>
+            </ul>
+
+            <h2>Itinerary Highlights:</h2>
+            <ul>
+                <li>
+                    <strong>Day 1: Arrival in Wayanad</strong>
+                    <ul>
+                        <li>Check-in at your hotel and relax</li>
+                        <li>Evening at leisure to explore the local market</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Day 2: Explore Nature and Wildlife</strong>
+                    <ul>
+                        <li>Visit the Muthanga Wildlife Sanctuary, home to elephants, leopards, and various bird species</li>
+                        <li>Take a walk through the lush Wayanad tea plantations</li>
+                        <li>Enjoy a traditional Kerala lunch</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Day 3: Historical and Cultural Tour</strong>
+                    <ul>
+                        <li>Discover the ancient Edakkal Caves, known for their prehistoric petroglyphs</li>
+                        <li>Visit the Wayanad Heritage Museum to learn about the region's history and culture</li>
+                        <li>Evening cultural performance featuring local dance and music</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Day 4: Adventure and Relaxation</strong>
+                    <ul>
+                        <li>Trek to Chembra Peak, the highest peak in Wayanad, with a heart-shaped lake on the way</li>
+                        <li>Relax at the Pookode Lake, with options for boating and enjoying the serene environment</li>
+                        <li>Evening visit to the Lakkidi View Point for a breathtaking sunset</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Day 5: Departure</strong>
+                    <ul>
+                        <li>After breakfast, check out from the hotel</li>
+                        <li>Transfer to the airport for your flight back home</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Things Covered in the Package:</h2>
+            <ul>
+                <li>Comfortable stay at a luxurious hotel with modern amenities</li>
+                <li>Daily breakfast and dinner at the hotel</li>
+                <li>Guided tours with experienced guides</li>
+                <li>All entry fees to the attractions mentioned in the itinerary</li>
+                <li>Local transportation in a private vehicle</li>
+                <li>Complimentary travel insurance for the duration of the trip</li>
+            </ul>
+
+            <h2>Special Add-ons:</h2>
+            <ul>
+                <li>Ayurvedic Spa Experience: Relax and rejuvenate with a traditional Ayurvedic massage</li>
+                <li>Local Culinary Experience: Enjoy a cooking class and learn to make authentic Kerala dishes</li>
+            </ul>
+
+            <h2>Booking Information:</h2>
+            <p>Book now and embark on a journey to explore the pristine beauty and rich cultural heritage of Wayanad. Our meticulously crafted package ensures you experience the best of what Wayanad has to offer, making your trip truly unforgettable.</p>
+        </section>
+        <div class="trip-card">
+            <img src="images/wayanad1.jpg" alt="Trip to Goa">
+            <div class="card-content">
+              
+              
+            </div>
+        </div>
+        <div class="trip-card">
+            <img src="images/wayanad4.jpg" alt="Trip to Goa">
+            <div class="card-content">
+              
+              
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h1>Book Now</h1>
+            <form id="contact-form" action="">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <select name="package" id="package">
+                    <option value="discover-wayanad-package">Discover Wayanad: An Enchanting Escape</option>
+                </select>
+                <button class="btn" onclick="window.location.href = 'https://wa.me/+917904946778';">Click Here</button>
+            </form>
+            <div class="success-message" id="success-message">
+                Thank you! Your message has been sent.
+            </div>
+        </div>
+    </main>
+    <br><br><br><br><br>
+    <footer>
+        <p>&copy; 2024 Travel Trip Service Provider. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Simulate form submission success
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('contact-form').reset();
+        });
+    </script>
+</body>
+
+</html>

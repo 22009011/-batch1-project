@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jurney Juntion</title>
+         {{> header   }}
+        <style>
+            #details-section {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            .details-content {
+                background-color: #fefefe;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+                max-width: 600px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                animation-name: animateModal;
+                animation-duration: 0.4s;
+            }
+            @keyframes animateModal {
+                from {top: -300px; opacity: 0;}
+                to {top: 0; opacity: 1;}
+            }
+            .details-content h2 {
+                text-align: center;
+            }
+            .details-content button {
+                background-color: #ff5c5c;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                border-radius: 5px;
+                font-size: 16px;
+                display: block;
+                margin: 20px auto 0;
+            }
+            .details-content button:hover {
+                background-color: #ff3333;
+            }
+        </style>
+    </head>
+    <body>
+        {{> navbar }}
+
+        <main>
+            <section class="search-section">
+                <h1>Find Your Perfect Trip</h1>
+                <form id="search-form">
+                    <input type="text" id="search-bar" placeholder="Search for trips..." />
+                    <button type="button" onclick="searchTrips()">Search</button>
+                </form>
+                <div class="filters">
+                    <label for="destination">Destination:</label>
+                    <select id="destination" onchange="searchTrips()">
+                        <option value="">All</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Wayanad">Wayanad</option>
+                        <option value="Varkala">Varkala</option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Ooty">Ooty</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Ladakh">Ladakh</option>
+                        <option value="alappuzha">Alappuzha</option>
+                        <option value="Mysuru">Mysuru</option>
+                        <option value="Agra">Agra</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                    </select>
+                    <label for="price-range">Price Range:</label>
+                    <input type="range" id="price-range" min="100" max="5000" step="100" onchange="searchTrips()">
+                    <span id="price-value">₹0 - ₹5000</span>
+                </div>
+            </section>
+
+            <section class="results-section">
+                <h2>Search Results</h2>
+                <div id="results-grid" class="trip-grid">
+                    <!-- Search results will be dynamically inserted here -->
+                </div>
+            </section>
+
+            <section class="animated-cards-section">
+                <h2>Featured Places</h2>
+                <div id="scroll-container" class="scroll-container">
+                    <div class="trip-card" data-destination="Alappuzha" data-price="1500" data-details="Alappuzha is a city on the Laccadive Sea in the southern Indian state of Kerala.">
+                        <img src="images/alappuzha.jpg" alt="Alappuzha">
+                        <div class="card-content">
+                            <h3>Alappuzha</h3>
+                            <a href="alappuzha" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="trip-card" data-destination="Hyderabad" data-price="2500" data-details="Hyderabad is the capital of southern India's Telangana state.">
+                        <img src="images/Charminar.jpg" alt="Hyderabad">
+                        <div class="card-content">
+                            <h3>Hyderabad</h3>
+                            <a href="hyderabad" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="trip-card" data-destination="Mumbai" data-price="4000" data-details="Mumbai (formerly called Bombay) is a densely populated city on India’s west coast.">
+                        <img src="images/mumbai.jpg" alt="Mumbai">
+                        <div class="card-content">
+                            <h3>Mumbai</h3>
+                            <a href="mumbai" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="trip-card" data-destination="Varkala" data-price="2000" data-details="Varkala is a town in the south Indian state of Kerala.">
+                        <img src="images/varkala.jpg" alt="Varkala">
+                        <div class="card-content">
+                            <h3>Varkala</h3>
+                            <a href="varkala" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="trip-card" data-destination="Ooty" data-price="3000" data-details="Ooty (short for Udhagamandalam) is a resort town in the Western Ghats mountains, in southern India's Tamil Nadu state.">
+                        <img src="images/ooty.jpg" alt="Ooty">
+                        <div class="card-content">
+                            <h3>Ooty</h3>
+                            <a href="ooty" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="trip-card" data-destination="Kolkata" data-price="3500" data-details="Kolkata (formerly Calcutta) is the capital of India’s West Bengal state.">
+                        <img src="images/kolkata.jpg" alt="Kolkata">
+                        <div class="card-content">
+                            <h3>Kolkata</h3>
+                            <button class="btn" onclick="showDetails(event)">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="trip-card" data-destination="Mysuru" data-price="2200" data-details="Mysore (officially Mysuru), a city in India's southwestern Karnataka state, was the capital of the Kingdom of Mysore from 1399 to 1947.">
+                        <img src="images/my.jpg" alt="Mysuru">
+                        <div class="card-content">
+                            <h3>Mysuru</h3>
+                            <button class="btn" onclick="showDetails(event)">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="trip-card" data-destination="Wayanad" data-price="1800" data-details="Wayanad is a rural district in Kerala state, southwest India. thanjiyappan djknndjknfnndnin">
+                        <img src="images/wayanad.png" alt="Wayanad">
+                        <div class="card-content">
+                            <h3>Wayanad</h3>
+                            <a href="wayanad" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="trip-card" data-destination="Goa" data-price="4800" data-details="Experience the beaches and nightlife of Goa. price:   4800     ">
+                        <img src="images/goa.jpg" alt="goa">
+                        <div class="card-content">
+                            <h3>goa</h3>
+                            <a href="goa" class="btn">Learn More</a>
+                            
+                        </div>
+                    </div>
+                    <div class="trip-card" data-destination="ladakh" data-price="4800" data-details="Experience the beaches and nightlife of Goa. price:   4800     ">
+                        <img src="images/ladakh.jpg" alt="ladakh">
+                        <div class="card-content">
+                            <h3>ladakh</h3>
+                            <a href="ladakh" class="btn">Learn More</a>
+                            
+                        </div>
+                    </div>
+                    <div class="trip-card" data-destination="agra" data-price="4800" data-details="Experience the beaches and nightlife of Goa. price:   4800     ">
+                        <img src="images/agra.jpg" alt="agra">
+                        <div class="card-content">
+                            <h3>agra</h3>
+                            <a href="agra" class="btn">Learn More</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="tripdetail">
+                <section id="details-section" class="details-section" style="display:none;">
+                    <div class="details-content">
+                        <h2>Trip Details</h2>
+                        <div id="trip-details"></div>
+                        <button onclick="hideDetails()">Close</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Travel Trip Service Provider. All rights reserved.</p>
+        </footer>
+
+        <script>
+            document.getElementById('price-range').addEventListener('input', function() {
+                document.getElementById('price-value').textContent = `₹0 - ₹${this.value}`;
+            });
+
+            function searchTrips() {
+                const searchQuery = document.getElementById('search-bar').value.toLowerCase();
+                const destinationFilter = document.getElementById('destination').value;
+                const priceFilter = document.getElementById('price-range').value;
+                
+                const tripCards = document.querySelectorAll('.trip-card');
+                const resultsGrid = document.getElementById('results-grid');
+                resultsGrid.innerHTML = '';
+
+                tripCards.forEach(card => {
+                    const tripName = card.querySelector('h3').textContent.toLowerCase();
+                    const tripDestination = card.dataset.destination.toLowerCase();
+                    const tripPrice = parseInt(card.dataset.price, 10);
+
+                    if (
+                        (tripName.includes(searchQuery) || searchQuery === '') &&
+                        (tripDestination === destinationFilter.toLowerCase() || destinationFilter === '') &&
+                        (tripPrice <= priceFilter)
+                    ) {
+                        resultsGrid.appendChild(card.cloneNode(true));
+                    }
+                });
+            }
+
+            function showDetails(event) {
+                const card = event.target.closest('.trip-card');
+                const details = card.dataset.details;
+
+                const newWindow = window.open('', '_blank');
+                newWindow.document.write(`
+                    <!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Trip Details</title>
+                        <style>
+                            body {
+                                font-family: Arial, sans-serif;
+                                margin: 20px;
+                            }
+                            .details-content {
+                                background-color: #fefefe;
+                                padding: 20px;
+                                border: 1px solid #888;
+                                border-radius: 10px;
+                                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                                max-width: 600px;
+                                margin: auto;
+                            }
+                            .details-content h2 {
+                                text-align: center;
+                            }
+                            .details-content button {
+                                background-color: #ff5c5c;
+                                color: white;
+                                border: none;
+                                padding: 10px 20px;
+                                cursor: pointer;
+                                border-radius: 5px;
+                                font-size: 16px;
+                                display: block;
+                                margin: 20px auto 0;
+                            }
+                            .details-content button:hover {
+                                background-color: #ff3333;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="details-content">
+                            <h2>Trip Details</h2>
+                            <div id="trip-details">${details}</div>
+                            <button onclick="window.close()">Close</button>
+                        </div>
+                    </body>
+                    </html>
+                `);
+                newWindow.document.close();
+            }
+
+            function hideDetails() {
+                const detailsSection = document.getElementById('details-section');
+                detailsSection.style.display = 'none';
+            }
+
+            // Initial search to populate the results grid
+            searchTrips();
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Bookings</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-image: url('/images/goa.jpg');
+}
+
+.navbar {
+    background-color: #f0efef;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.view-bookings {
+    padding: 20px;
+    align-items: center;
+    
+}
+
+form {
+    padding: 100px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+form input, form button {
+    font-size: larger;
+    align-items: center;
+    display: block;
+    width: 50%;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.booking-list ul {
+    font-size: larger;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.booking-list li {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 50%;
+    margin-bottom: 10px;
+    font-size: larger;
+    background-color: bisque;
+}
+
+.booking-list .btn {
+    align-items: center;
+    padding: 5px 10px;
+    font-size:larger;
+}
+#trip-name{
+    font-size: larger;
+    align-items: center;
+    display: block;
+    width: 50%;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+}
+
+    </style>
+     {{> header }}
+</head>
+<body>
+    {{> navbar }}
+
+    <main>
+        <section class="view-bookings">
+            <h1>View Bookings</h1>
+            <form id="booking-form">
+                <input type="text" id="user-name" placeholder="User Name" required>
+                <select id="trip-name" placeholder="choose trip">
+                    <option value="goa">Goa</option>
+                    <option value="wayanad">Wayanad</option>
+                    <option value="ladakh">Ladakh</option>
+                    <option value="kolkata">Kolkata</option>
+                    <option value="mysuru">mysuru</option>
+                    <option value="agra">Agra</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="varkala">Varkala</option>
+                    <option value="ooty">Ooty</option>
+                    <option value="alappuzha">Alappuzha</option>
+                    <option value="hyderabad">Hyderabad</option>
+                </select>
+
+                <input type="date" id="booking-date" required>
+                <button type="submit" class="btn" style="width: 50%;">Add Booking</button>
+            </form>
+            <div class="booking-list">
+                <h2>Existing Bookings</h2>
+                <ul id="booking-list">
+                    <!-- Booking items will be dynamically inserted here -->
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    
+
+    <script>
+        document.getElementById('booking-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const userName = document.getElementById('user-name').value;
+    const tripName = document.getElementById('trip-name').value;
+    const bookingDate = document.getElementById('booking-date').value;
+
+    const bookingItem = document.createElement('li');
+    bookingItem.innerHTML = `
+        <span><strong>${userName}</strong> booked a trip to ${tripName} on ${bookingDate}</span>
+        <div>
+            <button class="btn" onclick="editBooking(this)">Edit</button>
+            <button class="btn" onclick="deleteBooking(this)">Delete</button>
+        </div>
+    `;
+
+    document.getElementById('booking-list').appendChild(bookingItem);
+
+    document.getElementById('booking-form').reset();
+});
+
+function editBooking(button) {
+    const bookingItem = button.parentElement.parentElement;
+    const bookingDetails = bookingItem.firstChild.textContent.split(' booked a trip to ');
+    const userDetails = bookingDetails[1].split(' on ');
+
+    document.getElementById('user-name').value = bookingDetails[0];
+    document.getElementById('trip-name').value = userDetails[0];
+    document.getElementById('booking-date').value = userDetails[1];
+
+    bookingItem.remove();
+}
+
+function deleteBooking(button) {
+    button.parentElement.parentElement.remove();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const bookings = [
+        { user: 'John Doe', trip: 'Goa', date: '2024-07-20' },
+        { user: 'Jane Smith', trip: 'Mumbai', date: '2024-08-15' },
+        // Add more bookings here
+    ];
+
+    const bookingList = document.getElementById('booking-list');
+
+    bookings.forEach(booking => {
+        const bookingItem = document.createElement('li');
+        bookingItem.innerHTML = `
+            <span><strong>${booking.user}</strong> booked a trip to ${booking.trip} on ${booking.date}</span>
+        `;
+
+        bookingList.appendChild(bookingItem);
+    });
+});
+
+    </script>
+    <footer>
+        <p>&copy; 2024 Travel Trip Service Provider. All rights reserved.</p>
+    </footer>
+</body>
+</html>

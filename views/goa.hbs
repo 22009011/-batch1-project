@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goa Package</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav {
+    background: #f4f4f4;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav a {
+    color: #333;
+    margin: 0 0.5rem;
+    text-decoration: none;
+}
+
+.main {
+    padding: 2rem;
+    text-align: right;
+}
+.package-details {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #f8ccfa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.package-details h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+.package-details h2 {
+    color: #e74c3c;
+    margin-top: 1.5rem;
+}
+
+.package-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.package-details ul ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 20px;
+}
+
+.package-details ul li {
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+        /
+
+        .contact-form {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .contact-form h1 {
+           
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 50%;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: larger;
+        }
+        .contact-form select {
+            width: 50%;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: larger;
+        }
+
+        .contact-form button {
+            width: 20%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #555;
+        }
+
+        .contact-form .success-message {
+            display: none;
+            color: green;
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+
+    </style>
+</head>
+
+<body>
+    <header>
+        {{> header }}
+    </header>
+    
+    {{> navbar }}
+    
+    <main>
+        <section class="package-details">
+            <h1>Goa Package</h1>
+            <h2>Price:</h2>
+            <p><em>₹25,000 per person</em></p>
+            <h2>Duration:</h2>
+            <p><em>5 Days / 4 Nights</em></p>
+
+            <h2>Package Inclusions:</h2>
+            <ul>
+                <li>
+                    <h3>Accommodation:</h3>
+                    <ul>
+                        <li>4 nights stay in a 4-star beach resort with sea view rooms.</li>
+                        <li>Complimentary breakfast included.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Travel:</h3>
+                    <ul>
+                        <li>Round-trip airfare from major cities.</li>
+                        <li>Airport transfers in a comfortable air-conditioned vehicle.</li>
+                        <li>Daily transportation for sightseeing in a private car.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Sightseeing and Activities:</h3>
+                    <ul>
+                        <li>
+                            <strong>Day 1: Arrival and Relaxation</strong>
+                            <ul>
+                                <li>Welcome drink on arrival.</li>
+                                <li>Check-in and relax at the beach resort.</li>
+                                <li>Evening at leisure to explore the local beach.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Day 2: North Goa Tour</strong>
+                            <ul>
+                                <li>Visit Calangute, Baga, and Anjuna beaches.</li>
+                                <li>Explore Fort Aguada and its lighthouse.</li>
+                                <li>Experience the vibrant nightlife at Tito's Street.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Day 3: South Goa Tour</strong>
+                            <ul>
+                                <li>Visit Colva, Palolem, and Benaulim beaches.</li>
+                                <li>Explore the historic Basilica of Bom Jesus and Se Cathedral.</li>
+                                <li>Enjoy a serene boat cruise on the Mandovi River.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Day 4: Adventure and Water Sports</strong>
+                            <ul>
+                                <li>Engage in exciting water sports activities like parasailing, jet-skiing, and banana boat rides.</li>
+                                <li>Visit Dudhsagar Waterfalls and take a jeep safari.</li>
+                                <li>Relax at the resort in the evening with a special Goan dinner.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Day 5: Departure</strong>
+                            <ul>
+                                <li>Breakfast at the resort.</li>
+                                <li>Check-out and transfer to the airport for your flight back home.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Meals:</h3>
+                    <ul>
+                        <li>Daily breakfast at the hotel.</li>
+                        <li>Special Goan dinner on Day 4.</li>
+                        <li>Optional lunch and dinner at recommended local restaurants (additional cost).</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Additional Benefits:</h3>
+                    <ul>
+                        <li>Free Wi-Fi at the hotel.</li>
+                        <li>Access to the hotel’s swimming pool and gym.</li>
+                        <li>Travel insurance coverage.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Terms and Conditions:</h2>
+            <ul>
+                <li>Prices are per person based on double occupancy.</li>
+                <li>Flights are subject to availability.</li>
+                <li>Itinerary may change based on weather and other conditions.</li>
+                <li>Travel insurance is mandatory for all travelers.</li>
+            </ul>
+
+            <h2>Booking Information:</h2>
+            <p>For more details and booking, please visit our website or contact our customer service.</p>
+        </section>
+    </main>
+    
+
+    <div class="contact-form">
+        <h1>Book Rooms</h1>
+        <form id="contact-form" action="">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <select name="hotel" id="contact-form">
+                <option value="single">Single Room</option>
+                <option value="double">Double Room</option>
+                <option value="double\Ac">Double Room\AC</option>
+            </select>
+            <select name="price" id="contact-form">
+                <option value="single">4000</option>
+                <option value="double">9000</option>
+                <option value="double\Ac">12000</option>
+            </select>
+            <button class="btn" onclick= "window.location.href = 'https://wa.me/+917904946778';">Click Here</button>
+        </form>
+        <div class="success-message" id="success-message">
+            Thank you! Your message has been sent.
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            // Simulate form submission success
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('contact-form').reset();
+        });
+    </script>
+    <br><br><br><br><br>
+
+
+
+    <footer>
+        <p>&copy; 2024 Travel Trip Service Provider. All rights reserved.</p>
+    </footer>
+
+    
+</body>
+
+</html>
