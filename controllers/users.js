@@ -10,73 +10,121 @@ const db = mysql.createConnection({
   database: process.env.DATABASE,
 });
 
-exports.login = async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    if (!email || !password) {
-      return res.status(400).render("login", {
-        msg: "Please Enter Your Email and Password",
+ exports.login = async (req, res) => {
+//   try {
+//     const { email, password } = req.body;
+//     if (!email || !password) {
+//       return res.status(400).render("login", {
+//         msg: "Please Enter Your Email and Password",
+//         msg_type: "error",
+//       });
+//     }
+
+//     db.query(
+//       "select * from users where email=?",
+//       [email],
+//       async (error, result) => {
+//         console.log(result);
+//         if (result.length <= 0) {
+//           return res.status(401).render("login", {
+//             msg: "Please Enter Your Email and Password",
+//             msg_type: "error",
+//           });
+//         } else {
+//           if (!(await bcrypt.compare(password, result[0].password))) {
+//             return res.status(401).render("login", {
+//               msg: "Please Enter Your Email and Password",
+//               msg_type: "error",
+//             });
+//           } else {
+//             const id = result[0].ID;
+//             const token = jwt.sign({ id: id }, process.env.JWT_SECRET, {
+//               expiresIn: process.env.JWT_EXPIRES_IN,
+//             });
+//             console.log("The Token is " + token);
+//             const cookieOptions = {
+//               expires: new Date(
+//                 Date.now() +
+//                   process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+//               ),
+//               httpOnly: true,
+//             };
+//             res.cookie("joes", token, cookieOptions);
+//             res.status(200).redirect("/home");
+//           }
+//         }
+//       }
+//     );
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+try {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    return res.status(400).render("login", {
+      msg: "Please Enter Your Email and Password",
+      msg_type: "error",
+    });
+  }
+
+  db.query("SELECT * FROM users WHERE email=?", [email], async (error, result) => {
+    if (error) {
+      console.log(error);
+      return res.status(500).render("login", {
+        msg: "Server Error",
         msg_type: "error",
       });
     }
 
-    db.query(
-      "select * from users where email=?",
-      [email],
-      async (error, result) => {
-        console.log(result);
-        if (result.length <= 0) {
-          return res.status(401).render("login", {
-            msg: "Please Enter Your Email and Password",
-            msg_type: "error",
-          });
-        } else {
-          if (!(await bcrypt.compare(password, result[0].PASS))) {
-            return res.status(401).render("login", {
-              msg: "Please Enter Your Email and Password",
-              msg_type: "error",
-            });
-          } else {
-            const id = result[0].ID;
-            const token = jwt.sign({ id: id }, process.env.JWT_SECRET, {
-              expiresIn: process.env.JWT_EXPIRES_IN,
-            });
-            console.log("The Token is " + token);
-            const cookieOptions = {
-              expires: new Date(
-                Date.now() +
-                  process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
-              ),
-              httpOnly: true,
-            };
-            res.cookie("joes", token, cookieOptions);
-            res.status(200).redirect("/home");
-          }
-        }
-      }
-    );
-  } catch (error) {
-    console.log(error);
-  }
-};
+    if (result.length <= 0) {
+      return res.status(401).render("login", {
+        msg: "Invalid email or password",
+        msg_type: "error",
+      });
+    }
+
+    const validPassword = await bcrypt.compare(password, result[0].password);
+    if (!validPassword) {
+      return res.status(401).render("login", {
+        msg: "Invalid email or password",
+        msg_type: "error",
+      });
+    }
+
+    const id = result[0].id;
+    const token = jwt.sign({ id: id }, process.env.JWT_SECRET, {
+      expiresIn: process.env.JWT_EXPIRES_IN,
+    });
+
+    console.log("The Token is " + token);
+
+    const cookieOptions = {
+      expires: new Date(
+        Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+      ),
+      httpOnly: true,
+    };
+
+    res.cookie("joes", token, cookieOptions);
+    res.status(200).redirect("/home");
+  });
+} catch (error) {
+  console.log(error);
+}
+ }
+
 exports.register = (req, res) => {
   console.log(req.body);
-  /*
-  const name = req.body.name;
-  const email = req.body.email;
-  const password = req.body.password;
-  const confirm_password = req.body.confirm_password;
-  console.log(name);
-  console.log(email);
-    //res.send("Form Submitted");
-  */
+  
+  
   const { name, email, password, confirm_password } = req.body;
   db.query(
     "select email from users where email=?",
     [email],
     async (error, result) => {
       if (error) {
-        confirm.log(error);
+        console.log(error);
       }
 
       if (result.length > 0) {
@@ -95,7 +143,7 @@ exports.register = (req, res) => {
 
       db.query(
         "insert into users set ?",
-        { name: name, email: email, pass: hashedPassword },
+        { name: name, email: email, password: hashedPassword },
         (error, result) => {
           if (error) {
             console.log(error);
